@@ -8,6 +8,10 @@ public class PlayerController : MonoBehaviour
     private CharacterController controller;
     private Vector3 direction;
     public float forwardSpeed;
+
+    private int desiredLane = 1; // 0:left 1:middle 2:right
+    public float laneDistance = 4; // distance between two lanes
+    
     void Start()
     {
         controller = GetComponent<CharacterController>();
@@ -16,7 +20,46 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        direction.z = forwardSpeed;;
+        direction.z = forwardSpeed;
+
+        if(Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            // Debug.Log("Right arrow key pressed");
+            desiredLane++;
+            if(desiredLane == 3)
+            {
+                desiredLane = 2;
+            }
+        }
+
+        if(Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            // Debug.Log("Left arrow key pressed");
+            desiredLane--;
+            if(desiredLane == -1)
+            {
+                desiredLane = 0;
+            }
+        }
+
+        Vector3 targetPosition = transform.position;
+        targetPosition.z = transform.position.z;
+        targetPosition.y = transform.position.y;
+
+        if (desiredLane == 0)
+        {
+            targetPosition.x = -laneDistance;
+        }
+        else if (desiredLane == 1)
+        {
+            targetPosition.x = 0;
+        }
+        else if (desiredLane == 2)
+        {
+            targetPosition.x = laneDistance;
+        }
+
+        transform.position = Vector3.Lerp(transform.position, targetPosition, 800 * Time.fixedDeltaTime);
     }
 
     private void FixedUpdate()
