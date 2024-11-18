@@ -11,6 +11,8 @@ public class PlayerController : MonoBehaviour
 
     private int desiredLane = 1; // 0:left 1:middle 2:right
     public float laneDistance = 4; // distance between two lanes
+    public float jumpForce;
+    public float Gravity = -20;
     
     void Start()
     {
@@ -21,6 +23,17 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         direction.z = forwardSpeed;
+        
+        if(controller.isGrounded){
+            // direction.y = -1;
+            if (Input.GetKeyDown(KeyCode.UpArrow))
+            {
+                Jump();
+            }
+        }else{
+            direction.y += Gravity * Time.deltaTime;
+        }
+        
 
         if(Input.GetKeyDown(KeyCode.RightArrow))
         {
@@ -65,5 +78,9 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         controller.Move(direction * Time.deltaTime);
+    }
+
+    private void Jump(){
+        direction.y = jumpForce;
     }
 }
