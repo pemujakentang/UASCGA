@@ -168,7 +168,7 @@ MonoBehaviour:
   forwardSpeed: 10
   maxSpeed: 0
   laneDistance: 3
-  jumpForce: 8
+  jumpForce: 10
   Gravity: -20
   slideDuration: 1
 --- !u!136 &155481429
@@ -251,7 +251,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tilePrefabs:
   - {fileID: 7263935646379522004, guid: f59110d92c30d1347a7fd1e513cd16a6, type: 3}
-  - {fileID: 4530130188933486037, guid: 03958a74900fa294fad348d4e8f4b35e, type: 3}
+  - {fileID: 7436588169083720914, guid: e73f585568b802249afbacdf43a398b9, type: 3}
   - {fileID: 865723958063128897, guid: 1a8ed15f564288549a80b404d6dc4112, type: 3}
   - {fileID: 4984644364985160048, guid: 3dd844f30ae2ee2469d4750b7b77491e, type: 3}
   zSpawn: 0
@@ -453,13 +453,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.2587347, y: 0, z: 0, w: 0.96594846}
-  m_LocalPosition: {x: 0, y: 8.9, z: -12}
+  m_LocalRotation: {x: 0.004363274, y: 0, z: 0, w: 0.9999905}
+  m_LocalPosition: {x: 0, y: 5, z: -12}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 29.99, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0.5, y: 0, z: 0}
 --- !u!114 &963194229
 MonoBehaviour:
   m_ObjectHideFlags: 0

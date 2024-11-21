@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
 
     private Vector3 initialPosition;
 
+
     void Start()
     {
         controller = GetComponent<CharacterController>();
@@ -96,7 +97,23 @@ public class PlayerController : MonoBehaviour
             targetPosition.x = initialPosition.x + laneDistance;
         }
 
-        transform.position = Vector3.Lerp(transform.position, targetPosition, 800 * Time.fixedDeltaTime);
+        // transform.position = Vector3.Lerp(transform.position, targetPosition, 800 * Time.fixedDeltaTime);
+        if (transform.position == targetPosition)
+        {
+            return;
+        }
+
+        Vector3 diff = targetPosition - transform.position;
+        Vector3 moveDir = diff.normalized * 25 * Time.deltaTime;
+        if (moveDir.sqrMagnitude < diff.sqrMagnitude)
+        {
+            controller.Move(moveDir);
+        }
+        else
+        {
+            controller.Move(diff);
+        }
+    
     }
 
     private void FixedUpdate()
@@ -122,5 +139,13 @@ public class PlayerController : MonoBehaviour
         isSliding = false;
         controller.height = controller.height * 5;
         controller.center = new Vector3(controller.center.x, controller.center.y * 5, controller.center.z);
+    }
+
+    private void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        if (hit.transform.tag == "Obstacle")
+        {
+            PlayerManager.gameOver = true;
+        }
     }
 }
