@@ -13,15 +13,16 @@ public class PlayerController : MonoBehaviour
     public float jumpForce;
     public float Gravity = -20;
     private bool isSliding = false;
-    public float slideDuration = 0.75f;
+    public float slideDuration = 1f;
     private float slideTimer;
 
     private Vector3 initialPosition;
-
+    private Animator animator;
 
     void Start()
     {
         controller = GetComponent<CharacterController>();
+        animator = GetComponent<Animator>();
         initialPosition = transform.position;
     }
 
@@ -124,21 +125,26 @@ public class PlayerController : MonoBehaviour
     private void Jump()
     {
         direction.y = jumpForce;
+        animator.SetTrigger("Jump");
     }
 
     private void StartSlide()
     {
         isSliding = true;
         slideTimer = slideDuration;
-        controller.height = controller.height / 5;
-        controller.center = new Vector3(controller.center.x, controller.center.y / 5, controller.center.z);
+        controller.height = controller.height / 3;
+        controller.center = new Vector3(controller.center.x, controller.center.y / 3, controller.center.z);
+        animator.SetTrigger("Slide");
+        Debug.Log("Slide triggered");
     }
 
     private void StopSlide()
     {
         isSliding = false;
-        controller.height = controller.height * 5;
-        controller.center = new Vector3(controller.center.x, controller.center.y * 5, controller.center.z);
+        controller.height = controller.height * 3;
+        controller.center = new Vector3(controller.center.x, controller.center.y * 3, controller.center.z);
+        animator.ResetTrigger("Slide");
+        Debug.Log("Slide stopped");
     }
 
     private void OnControllerColliderHit(ControllerColliderHit hit)
