@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4019899386599560064}
   m_Layer: 0
-  m_Name: TileKosong
+  m_Name: kosong
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
