@@ -5,6 +5,9 @@ public class Events : MonoBehaviour
 {
     public void ReplayGame()
     {
-        SceneManager.LoadScene("Default");
+        // Reset the gameOver flag
+        PlayerManager.gameOver = false;
+        // Reload the current scene
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
