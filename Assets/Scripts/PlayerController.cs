@@ -29,6 +29,11 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(!PlayerManager.isGameStarted)
+        {
+            return;
+        }
+
         if (forwardSpeed < maxSpeed)
         {
             forwardSpeed += 1f * Time.deltaTime;
@@ -37,6 +42,10 @@ public class PlayerController : MonoBehaviour
 
         if (controller.isGrounded)
         {
+            if(SwipeManager.swipeUp)
+            {
+                Jump();
+            }
             if (Input.GetKeyDown(KeyCode.UpArrow))
             {
                 Jump();
@@ -45,6 +54,23 @@ public class PlayerController : MonoBehaviour
         else
         {
             direction.y += Gravity * Time.deltaTime;
+        }
+
+        if(SwipeManager.swipeRight)
+        {
+            desiredLane++;
+            if (desiredLane == 3)
+            {
+                desiredLane = 2;
+            }
+        }
+        if(SwipeManager.swipeLeft)
+        {
+            desiredLane--;
+            if (desiredLane == -1)
+            {
+                desiredLane = 0;
+            }
         }
 
         if (Input.GetKeyDown(KeyCode.RightArrow))
@@ -65,6 +91,11 @@ public class PlayerController : MonoBehaviour
             {
                 desiredLane = 0;
             }
+        }
+
+        if(SwipeManager.swipeDown)
+        {
+            StartSlide();
         }
 
         if (Input.GetKeyDown(KeyCode.DownArrow) && !isSliding)
@@ -119,6 +150,10 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if(!PlayerManager.isGameStarted)
+        {
+           return;
+        }
         controller.Move(direction * Time.deltaTime);
     }
 
