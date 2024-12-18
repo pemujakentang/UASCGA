@@ -20,7 +20,7 @@ RenderSettings:
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.9318117, g: 0.5789515, b: 0.21726874, a: 1}
+  m_AmbientSkyColor: {r: 0.9335804, g: 0.6018572, b: 0.21331134, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
@@ -156,8 +156,8 @@ MonoBehaviour:
   rotationAxis: 0
   IsDayCycleOn: 1
   RandomStartTime: 0
-  TimeOfDay: 5.3
-  StartTime: 5.3
+  TimeOfDay: 5.45
+  StartTime: 5.45
   CycleDuration: 60
   morningInterval: {x: 0, y: 0.5}
   afterNoonInterval: {x: 0.5, y: 1}
@@ -473,9 +473,17 @@ MonoBehaviour:
   - {fileID: 4984644364985160048, guid: 038d1e11899e6427d9a6df6d1cfa4934, type: 3}
   - {fileID: 4984644364985160048, guid: d0e3d3743401e425dafafae142beddc0, type: 3}
   - {fileID: 4984644364985160048, guid: 5bea352f2e21e4cc08cbef4d1d7f5561, type: 3}
+  - {fileID: 7436588169083720914, guid: bf13a8fb2507640ee958a0af121a7c72, type: 3}
+  - {fileID: 7436588169083720914, guid: 2842773cf48ac4bfb94be982f4a009e1, type: 3}
+  - {fileID: 865723958063128897, guid: c563f7342e4a94ae2ab0d511eacb6c7c, type: 3}
+  - {fileID: 4984644364985160048, guid: 47ea82b9a8814476d8c71e7411a27831, type: 3}
+  - {fileID: 4984644364985160048, guid: b24717d46fb9a47a088e82cd552c2b7a, type: 3}
+  - {fileID: 4984644364985160048, guid: 96e4571eb7b3a4e9899fbc7b13d6b9db, type: 3}
+  - {fileID: 4984644364985160048, guid: 83fdd68f8238f484e8f3a027a89f93e9, type: 3}
+  - {fileID: 7436588169083720914, guid: b26508af1f7a24d79b85de485151f29c, type: 3}
   zSpawn: 0
   tileLength: 30
-  numberOfTiles: 5
+  numberOfTiles: 10
   playerTransform: {fileID: 155481430}
 --- !u!4 &497935680
 Transform:
@@ -566,8 +574,8 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 0.9318117, g: 0.5789515, b: 0.21726874, a: 1}
-  m_Intensity: 0.4416667
+  m_Color: {r: 0.9335804, g: 0.6018572, b: 0.21331134, a: 1}
+  m_Intensity: 0.45416665
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -576,7 +584,7 @@ Light:
     m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
-    m_Strength: 0.22083335
+    m_Strength: 0.22708333
     m_Bias: 0.05
     m_NormalBias: 0.4
     m_NearPlane: 0.2
@@ -625,7 +633,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 705507993}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.091501586, y: 0, z: 0, w: 0.99580497}
+  m_LocalRotation: {x: -0.07193268, y: 0, z: 0, w: 0.99740946}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
