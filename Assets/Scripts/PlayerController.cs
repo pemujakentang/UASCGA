@@ -183,10 +183,18 @@ public class PlayerController : MonoBehaviour
     }
 
     private void OnControllerColliderHit(ControllerColliderHit hit)
+{
+    Debug.Log($"Collision with: {hit.gameObject.name}, Layer: {LayerMask.LayerToName(hit.gameObject.layer)}, Tag: {hit.gameObject.tag}");
+
+    if (hit.gameObject.CompareTag("Obstacle"))
     {
-        if (hit.transform.tag == "Obstacle")
-        {
-            PlayerManager.gameOver = true;
-        }
+        Debug.Log($"Obstacle detected: {hit.gameObject.name}");
+        PlayerManager.gameOver = true;
     }
+    else
+    {
+        Debug.Log($"Non-Obstacle detected: {hit.gameObject.name}");
+    }
+}
+
 }
