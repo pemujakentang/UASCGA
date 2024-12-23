@@ -167,8 +167,8 @@ public class PlayerController : MonoBehaviour
     {
         isSliding = true;
         slideTimer = slideDuration;
-        // controller.height = controller.height / 3;
-        // controller.center = new Vector3(controller.center.x, controller.center.y / 3, controller.center.z);
+        controller.height = controller.height / 3;
+        controller.center = new Vector3(controller.center.x, controller.center.y / 3, controller.center.z);
         animator.SetTrigger("Slide");
         Debug.Log("Slide triggered");
     }
@@ -176,8 +176,8 @@ public class PlayerController : MonoBehaviour
     private void StopSlide()
     {
         isSliding = false;
-        // controller.height = controller.height * 3;
-        // controller.center = new Vector3(controller.center.x, controller.center.y * 3, controller.center.z);
+        controller.height = controller.height * 3;
+        controller.center = new Vector3(controller.center.x, controller.center.y * 3, controller.center.z);
         animator.ResetTrigger("Slide");
         Debug.Log("Slide stopped");
     }
