@@ -11,6 +11,7 @@ public class PlayerManager : MonoBehaviour
     public static bool isGameStarted;
 
     public GameObject StartingText;
+    public GameObject Score;
 
     public static int numberOfCoins;
     // Start is called before the first frame update
@@ -20,6 +21,7 @@ public class PlayerManager : MonoBehaviour
         Time.timeScale = 1;
         isGameStarted = false;
         numberOfCoins = 0;
+        Score.SetActive(false);
     }
 
     // Update is called once per frame
@@ -29,11 +31,13 @@ public class PlayerManager : MonoBehaviour
         {
             Time.timeScale = 0;
             gameOverPanel.SetActive(true);
+            Score.SetActive(false);
         }
         
         if(SwipeManager.tap && !isGameStarted)
         {
             isGameStarted = true;
+            Score.SetActive(true);
             Destroy(StartingText);
         }
     }

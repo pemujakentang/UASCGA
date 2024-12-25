@@ -13,4 +13,10 @@ public class Events : MonoBehaviour
         Debug.Log("Scene Name: " + SceneManager.GetActiveScene().name);
 
     }
+
+    public void BackToMenu()
+    {
+        // Load the main menu scene
+        SceneManager.LoadScene("MainMenu");
+    }
 }
