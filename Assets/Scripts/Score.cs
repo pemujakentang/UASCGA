@@ -17,7 +17,7 @@ public class Score : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (SwipeManager.tap && !PlayerManager.isGameStarted)
+        if (PlayerManager.isGameStarted)
         {
             score += Time.deltaTime;
         }
