@@ -167,8 +167,8 @@ public class PlayerController : MonoBehaviour
     {
         isSliding = true;
         slideTimer = slideDuration;
-        // controller.height = controller.height / 3;
-        // controller.center = new Vector3(controller.center.x, controller.center.y / 3, controller.center.z);
+        controller.height = controller.height / 3;
+        controller.center = new Vector3(controller.center.x, controller.center.y / 3, controller.center.z);
         animator.SetTrigger("Slide");
         Debug.Log("Slide triggered");
     }
@@ -176,17 +176,25 @@ public class PlayerController : MonoBehaviour
     private void StopSlide()
     {
         isSliding = false;
-        // controller.height = controller.height * 3;
-        // controller.center = new Vector3(controller.center.x, controller.center.y * 3, controller.center.z);
+        controller.height = controller.height * 3;
+        controller.center = new Vector3(controller.center.x, controller.center.y * 3, controller.center.z);
         animator.ResetTrigger("Slide");
         Debug.Log("Slide stopped");
     }
 
     private void OnControllerColliderHit(ControllerColliderHit hit)
+{
+    Debug.Log($"Collision with: {hit.gameObject.name}, Layer: {LayerMask.LayerToName(hit.gameObject.layer)}, Tag: {hit.gameObject.tag}");
+
+    if (hit.gameObject.CompareTag("Obstacle"))
     {
-        if (hit.transform.tag == "Obstacle")
-        {
-            PlayerManager.gameOver = true;
-        }
+        Debug.Log($"Obstacle detected: {hit.gameObject.name}");
+        PlayerManager.gameOver = true;
     }
+    else
+    {
+        Debug.Log($"Non-Obstacle detected: {hit.gameObject.name}");
+    }
+}
+
 }
