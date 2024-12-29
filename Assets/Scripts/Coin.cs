@@ -20,12 +20,13 @@ public class Coin : MonoBehaviour
             PlayerController playerController = other.GetComponent<PlayerController>();
             if (playerController != null && playerController.IsDoubleCoinsActive())
             {
-                PlayerManager.numberOfCoins += 2;
+                PlayerManager.numberOfCoins *= 2;
             }
             else
             {
                 PlayerManager.numberOfCoins++;
             }
+            Score.score += 5;
             Debug.Log(PlayerManager.numberOfCoins);
             Destroy(gameObject);
         }
