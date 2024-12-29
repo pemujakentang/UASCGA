@@ -365,7 +365,7 @@ MonoBehaviour:
   IsDayCycleOn: 0
   RandomStartTime: 0
   TimeOfDay: 18.67
-  StartTime: 0
+  StartTime: 6.9
   CycleDuration: 60
   morningInterval: {x: 0, y: 0.5}
   afterNoonInterval: {x: 0.5, y: 1}
