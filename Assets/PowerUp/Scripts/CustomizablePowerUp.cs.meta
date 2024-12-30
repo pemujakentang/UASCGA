@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: 51803f42c5ad6ed469cd71e4b4e0dec0
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - pickUpSound: {instanceID: 0}
+  - externHull: {instanceID: 0}
+  - externHullMaterial: {fileID: 2100000, guid: 977b6d7a9501307478a6fab8d0743ae9, type: 2}
+  - internHull: {fileID: 116466, guid: 149a83b3d7325574581f93b92f7e7746, type: 3}
+  - internHullMaterial: {instanceID: 0}
+  - effect: {fileID: 100000, guid: 54d548b1a922d54449e2bd5424597d57, type: 3}
+  - item: {fileID: 919132149155446097, guid: 4a4d26ff2998d8a4a8615f971591a9d2, type: 3}
+  - itemMaterial: {fileID: 2100000, guid: cc5b20b4307519e40bdcc830c0b39d44, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
