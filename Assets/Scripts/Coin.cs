@@ -1,13 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Coin : MonoBehaviour
 {
-    // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -18,9 +15,18 @@ public class Coin : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.CompareTag("Player"))
         {
-            PlayerManager.numberOfCoins++;
+            PlayerController playerController = other.GetComponent<PlayerController>();
+            if (playerController != null && playerController.IsDoubleCoinsActive())
+            {
+                PlayerManager.numberOfCoins *= 2;
+            }
+            else
+            {
+                PlayerManager.numberOfCoins++;
+            }
+            Score.score += 5;
             Debug.Log(PlayerManager.numberOfCoins);
             Destroy(gameObject);
         }

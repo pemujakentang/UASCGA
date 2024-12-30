@@ -9,25 +9,21 @@ public class MenuManager : MonoBehaviour
 
     private void Start()
     {
-        // Pastikan hanya mainMenu yang aktif saat awal
         ShowMainMenu();
     }
 
-    // Menampilkan Menu Utama
     public void ShowMainMenu()
     {
         Menu.SetActive(true);
         Difficulty.SetActive(false);
     }
 
-    // Menampilkan Menu Pemilihan Difficulty
     public void ShowDifficultySelection()
     {
         Menu.SetActive(false);
         Difficulty.SetActive(true);
     }
 
-    // Fungsi untuk memilih kesulitan dan memuat scene yang sesuai
     public void SelectDifficulty(string difficulty)
     {
         Debug.Log("Selected difficulty: " + difficulty);
@@ -49,7 +45,6 @@ public class MenuManager : MonoBehaviour
         }
     }
 
-    // Fungsi untuk keluar dari game
     public void QuitGame()
     {
         Debug.Log("Quit Game");
