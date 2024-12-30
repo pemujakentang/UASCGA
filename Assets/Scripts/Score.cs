@@ -21,6 +21,10 @@ public class Score : MonoBehaviour
         {
             score += Time.deltaTime;
         }
+        if (PlayerManager.gameOver)
+        {
+            score = 0;
+        }
         scoreText.text = ((int)score).ToString();
 
     }

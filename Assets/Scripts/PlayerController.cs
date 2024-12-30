@@ -27,6 +27,12 @@ public class PlayerController : MonoBehaviour
     private Light powerUpLight;
     private float powerUpActivationTime;
 
+    // Audio clips
+    public AudioClip jumpSound;
+    public AudioClip powerUpSound;
+    public AudioClip coinPickupSound;
+    private AudioSource audioSource;
+
     void Start()
     {
         controller = GetComponent<CharacterController>();
@@ -41,6 +47,9 @@ public class PlayerController : MonoBehaviour
         {
             powerUpLight.enabled = false; // Disable the light initially
         }
+
+        // Get the AudioSource component
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -204,6 +213,7 @@ public class PlayerController : MonoBehaviour
     {
         direction.y = jumpForce;
         animator.SetTrigger("Jump");
+        audioSource.PlayOneShot(jumpSound);
     }
 
     private void StartSlide()
@@ -240,6 +250,16 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Coin"))
+        {
+            PlayerManager.numberOfCoins++;
+            audioSource.PlayOneShot(coinPickupSound); // Play coin pickup sound
+            Destroy(other.gameObject);
+        }
+    }
+
     public void ActivatePowerUp(PowerUp.PowerUpType powerUpType, float duration)
     {
         // Deactivate any existing power-up
@@ -270,6 +290,7 @@ public class PlayerController : MonoBehaviour
         {
             powerUpLight.enabled = true;
         }
+        audioSource.PlayOneShot(powerUpSound);
     }
 
     private void DeactivatePowerUp()
