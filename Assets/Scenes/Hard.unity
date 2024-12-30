@@ -444,7 +444,7 @@ MonoBehaviour:
   - {fileID: 4984644364985160048, guid: 83fdd68f8238f484e8f3a027a89f93e9, type: 3}
   - {fileID: 7436588169083720914, guid: b26508af1f7a24d79b85de485151f29c, type: 3}
   powerUpPrefabs:
-  - {fileID: 6736335694323957946, guid: 3be810c708fbc3448b5fb0fadf496998, type: 3}
+  - {fileID: 100012, guid: 80874a04bca4d2c4894cc2500eeaf928, type: 3}
   - {fileID: 6736335694323957946, guid: a306c62b259d47046ae7cb7c479ec94d, type: 3}
   - {fileID: 6736335694323957946, guid: c762e3f84fd08914eb6138f8718a2e01, type: 3}
   - {fileID: 6736335694323957946, guid: fb24d082ebcd13d47a758b7b21b950c6, type: 3}
