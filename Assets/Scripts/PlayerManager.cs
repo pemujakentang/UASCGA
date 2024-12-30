@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
-    
     public static bool gameOver;
     public GameObject gameOverPanel;
 
@@ -14,6 +13,11 @@ public class PlayerManager : MonoBehaviour
     public GameObject Score;
 
     public static int numberOfCoins;
+
+    // Background music
+    public AudioClip backgroundMusic;
+    private AudioSource audioSource;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +26,15 @@ public class PlayerManager : MonoBehaviour
         isGameStarted = false;
         numberOfCoins = 0;
         Score.SetActive(false);
+
+        // Get the AudioSource component and configure it
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource != null && backgroundMusic != null)
+        {
+            audioSource.clip = backgroundMusic;
+            audioSource.loop = true;
+            audioSource.Play();
+        }
     }
 
     // Update is called once per frame
@@ -33,8 +46,8 @@ public class PlayerManager : MonoBehaviour
             gameOverPanel.SetActive(true);
             Score.SetActive(false);
         }
-        
-        if(SwipeManager.tap && !isGameStarted)
+
+        if (SwipeManager.tap && !isGameStarted)
         {
             isGameStarted = true;
             Score.SetActive(true);

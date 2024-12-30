@@ -2,9 +2,12 @@ using UnityEngine;
 
 public class Coin : MonoBehaviour
 {
+    public AudioClip coinPickupSound;
+    private AudioSource audioSource;
+
     void Start()
     {
-
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -26,8 +29,10 @@ public class Coin : MonoBehaviour
             {
                 PlayerManager.numberOfCoins++;
             }
+            audioSource.PlayOneShot(coinPickupSound); // Play coin pickup sound
             Score.score += 5;
             Debug.Log(PlayerManager.numberOfCoins);
+
             Destroy(gameObject);
         }
     }
