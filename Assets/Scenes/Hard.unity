@@ -450,6 +450,7 @@ MonoBehaviour:
   - {fileID: 6736335694323957946, guid: fb24d082ebcd13d47a758b7b21b950c6, type: 3}
   tileLength: 22
   numberOfTiles: 10
+  powerUpSpawnRate: 1
 --- !u!4 &786319899
 Transform:
   m_ObjectHideFlags: 0

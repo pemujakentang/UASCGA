@@ -9,6 +9,7 @@ public class TileManager : MonoBehaviour
     private float zSpawn = 0;
     public float tileLength = 30;
     public int numberOfTiles = 5;
+    public int powerUpSpawnRate = 3;
     private List<GameObject> activeTiles = new List<GameObject>();
 
     // Reference to PlayerController to get laneDistance
@@ -44,7 +45,7 @@ public class TileManager : MonoBehaviour
         zSpawn += tileLength;
 
         // Randomly spawn a power-up
-        if (Random.Range(0, 10) < 6) // 20% chance to spawn a power-up
+        if (Random.Range(0, 10) < powerUpSpawnRate)
         {
             int powerUpIndex = Random.Range(0, powerUpPrefabs.Length);
             int laneIndex = Random.Range(0, 3); // Randomly select a lane (0:left, 1:middle, 2:right)
