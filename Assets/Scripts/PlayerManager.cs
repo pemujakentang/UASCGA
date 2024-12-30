@@ -16,6 +16,7 @@ public class PlayerManager : MonoBehaviour
 
     // Background music
     public AudioClip backgroundMusic;
+    public AudioClip startSound;
     private AudioSource audioSource;
 
     // Start is called before the first frame update
@@ -50,6 +51,7 @@ public class PlayerManager : MonoBehaviour
         if (SwipeManager.tap && !isGameStarted)
         {
             isGameStarted = true;
+            audioSource.PlayOneShot(startSound);
             Score.SetActive(true);
             Destroy(StartingText);
         }

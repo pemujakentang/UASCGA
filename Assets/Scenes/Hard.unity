@@ -711,6 +711,7 @@ MonoBehaviour:
   StartingText: {fileID: 1883365789}
   Score: {fileID: 1651713596}
   backgroundMusic: {fileID: 8300000, guid: 1033e6594eed5dd47b37c15c662af81e, type: 3}
+  startSound: {fileID: 8300000, guid: 7fa50d55242ed6540bab15980fec1603, type: 3}
 --- !u!4 &1051825730
 Transform:
   m_ObjectHideFlags: 0
@@ -3117,7 +3118,7 @@ MonoBehaviour:
   slideDuration: 1
   originalForwardSpeed: 0
   jumpSound: {fileID: 8300000, guid: dcd0362ba192ee04e951c42b826c0ed8, type: 3}
-  powerUpSound: {fileID: 8300000, guid: 7fa50d55242ed6540bab15980fec1603, type: 3}
+  powerUpSound: {fileID: 8300000, guid: 1f300432fa10dca4cad8121f676939b1, type: 3}
   coinPickupSound: {fileID: 8300000, guid: 1fbc6644884e9ad4983bba8eea906a13, type: 3}
 --- !u!136 &1981493420
 CapsuleCollider:
