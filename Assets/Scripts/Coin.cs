@@ -29,9 +29,9 @@ public class Coin : MonoBehaviour
             else
             {
                 PlayerManager.numberOfCoins++;
+                Score.score += 1;
             }
             audioSource.PlayOneShot(coinPickupSound); // Play coin pickup sound
-            Score.score += 5;
             Debug.Log(PlayerManager.numberOfCoins);
 
             Destroy(gameObject);

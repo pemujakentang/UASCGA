@@ -6,15 +6,14 @@ using UnityEngine.UI;
 public class Score : MonoBehaviour
 {
     public static float score = 0.0f;
+    private float endScore = 0.0f;
     public Text scoreText;
 
-    // Start is called before the first frame update
     void Start()
     {
         
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (PlayerManager.isGameStarted)
@@ -23,6 +22,7 @@ public class Score : MonoBehaviour
         }
         if (PlayerManager.gameOver)
         {
+            endScore = score;
             score = 0;
         }
         scoreText.text = ((int)score).ToString();
