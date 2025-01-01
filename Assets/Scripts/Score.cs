@@ -6,13 +6,15 @@ using UnityEngine.UI;
 public class Score : MonoBehaviour
 {
     public static float score = 0.0f;
-    private float endScore = 0.0f;
+    private float endScore;   
     public Text scoreText;
+    public Text endScoreText;
     private PlayerController playerController;
 
     void Start()
     {
         playerController = FindObjectOfType<PlayerController>();
+        score = 0.0f;
     }
 
     void Update()
@@ -21,12 +23,13 @@ public class Score : MonoBehaviour
         {
             score += (playerController.forwardSpeed/10) * Time.deltaTime;
         }
-        if (PlayerManager.gameOver)
-        {
-            endScore = score;
-            score = 0;
-        }
+        // if (PlayerManager.gameOver)
+        // {
+        //     endScore = score;
+        //     score = 0;
+        // }
         scoreText.text = ((int)score).ToString();
+        endScoreText.text = ((int)score).ToString();
 
     }
 }
