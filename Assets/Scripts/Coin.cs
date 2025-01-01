@@ -24,6 +24,7 @@ public class Coin : MonoBehaviour
             if (playerController != null && playerController.IsDoubleCoinsActive())
             {
                 PlayerManager.numberOfCoins *= 2;
+                Score.score += 5;
             }
             else
             {
