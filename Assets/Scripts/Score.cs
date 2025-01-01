@@ -8,17 +8,18 @@ public class Score : MonoBehaviour
     public static float score = 0.0f;
     private float endScore = 0.0f;
     public Text scoreText;
+    private PlayerController playerController;
 
     void Start()
     {
-        
+        playerController = FindObjectOfType<PlayerController>();
     }
 
     void Update()
     {
         if (PlayerManager.isGameStarted)
         {
-            score += Time.deltaTime;
+            score += (playerController.forwardSpeed/10) * Time.deltaTime;
         }
         if (PlayerManager.gameOver)
         {

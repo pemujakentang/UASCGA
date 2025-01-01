@@ -23,13 +23,13 @@ public class Coin : MonoBehaviour
             PlayerController playerController = other.GetComponent<PlayerController>();
             if (playerController != null && playerController.IsDoubleCoinsActive())
             {
-                PlayerManager.numberOfCoins *= 2;
-                Score.score += 5;
+                PlayerManager.numberOfCoins += 2;
+                Score.score += 10;
             }
             else
             {
                 PlayerManager.numberOfCoins++;
-                Score.score += 1;
+                Score.score += 5;
             }
             audioSource.PlayOneShot(coinPickupSound); // Play coin pickup sound
             Debug.Log(PlayerManager.numberOfCoins);
