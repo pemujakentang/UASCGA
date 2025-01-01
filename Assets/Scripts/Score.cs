@@ -23,11 +23,6 @@ public class Score : MonoBehaviour
         {
             score += (playerController.forwardSpeed/10) * Time.deltaTime;
         }
-        // if (PlayerManager.gameOver)
-        // {
-        //     endScore = score;
-        //     score = 0;
-        // }
         scoreText.text = ((int)score).ToString();
         endScoreText.text = ((int)score).ToString();
 

@@ -284,7 +284,6 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 426510519}
   - {fileID: 1937207746}
   m_Father: {fileID: 1016853594}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -343,7 +342,7 @@ GameObject:
   - component: {fileID: 426510521}
   - component: {fileID: 426510520}
   m_Layer: 5
-  m_Name: EndScore
+  m_Name: GameScore
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -362,12 +361,12 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1225703038}
-  m_Father: {fileID: 177493729}
+  m_Father: {fileID: 1937207746}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 219.07, y: 224}
-  m_SizeDelta: {x: -438.1394, y: -251.284}
+  m_AnchoredPosition: {x: 70.27576, y: 100.943695}
+  m_SizeDelta: {x: -140.5509, y: -5.1713867}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &426510520
 MonoBehaviour:
@@ -1003,7 +1002,7 @@ GameObject:
   - component: {fileID: 1225703040}
   - component: {fileID: 1225703039}
   m_Layer: 5
-  m_Name: EndScore
+  m_Name: GameScore
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1608,6 +1607,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 426510519}
   - {fileID: 56049158}
   - {fileID: 1679690084}
   m_Father: {fileID: 177493729}
