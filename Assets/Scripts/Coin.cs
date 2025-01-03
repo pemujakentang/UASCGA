@@ -1,13 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Coin : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public AudioClip coinPickupSound;
+    private AudioSource audioSource;
+
     void Start()
     {
-        
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -18,10 +18,22 @@ public class Coin : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.CompareTag("Player"))
         {
-            PlayerManager.numberOfCoins++;
+            PlayerController playerController = other.GetComponent<PlayerController>();
+            if (playerController != null && playerController.IsDoubleCoinsActive())
+            {
+                PlayerManager.numberOfCoins += 2;
+                Score.score += 10;
+            }
+            else
+            {
+                PlayerManager.numberOfCoins++;
+                Score.score += 5;
+            }
+            audioSource.PlayOneShot(coinPickupSound); // Play coin pickup sound
             Debug.Log(PlayerManager.numberOfCoins);
+
             Destroy(gameObject);
         }
     }

@@ -1,44 +1,58 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using System.Collections.Generic;
 
 public class TileManager : MonoBehaviour
 {
     public GameObject[] tilePrefabs;
-    public float zSpawn = 0;
+    public GameObject[] powerUpPrefabs; // Array of power-up prefabs
+    private Transform playerTransform;
+    private float zSpawn = 0;
     public float tileLength = 30;
     public int numberOfTiles = 5;
-    public Transform playerTransform;
+    public int powerUpSpawnRate = 3;
     private List<GameObject> activeTiles = new List<GameObject>();
-    // Start is called before the first frame update
-    
+
+    // Reference to PlayerController to get laneDistance
+    private PlayerController playerController;
+
     void Start()
     {
-        for(int i = 0; i < numberOfTiles; i++)
+        playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+        playerController = playerTransform.GetComponent<PlayerController>();
+
+        for (int i = 0; i < numberOfTiles; i++)
         {
-            if(i == 0)
-            {
+            if (i == 0)
                 SpawnTile(0);
-            }else{
+            else
                 SpawnTile(Random.Range(0, tilePrefabs.Length));
-            }
         }
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if(playerTransform.position.z - 35 > zSpawn - (numberOfTiles * tileLength))
+        if (playerTransform.position.z - 35 > zSpawn - (numberOfTiles * tileLength))
         {
             SpawnTile(Random.Range(1, tilePrefabs.Length));
             DeleteTile();
         }
     }
+
     public void SpawnTile(int tileIndex)
     {
         GameObject go = Instantiate(tilePrefabs[tileIndex], transform.forward * zSpawn, transform.rotation);
         activeTiles.Add(go);
         zSpawn += tileLength;
+
+        // Randomly spawn a power-up
+        if (Random.Range(0, 10) < powerUpSpawnRate)
+        {
+            int powerUpIndex = Random.Range(0, powerUpPrefabs.Length);
+            int laneIndex = Random.Range(0, 3); // Randomly select a lane (0:left, 1:middle, 2:right)
+            float lanePositionX = (laneIndex - 1) * playerController.laneDistance; // Calculate lane position using laneDistance
+            Vector3 powerUpPosition = go.transform.position + new Vector3(lanePositionX, 1, tileLength / 2);
+            Instantiate(powerUpPrefabs[powerUpIndex], powerUpPosition, Quaternion.identity);
+        }
     }
 
     private void DeleteTile()
