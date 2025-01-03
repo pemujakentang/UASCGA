@@ -12,7 +12,6 @@ public class TileManager : MonoBehaviour
     public int powerUpSpawnRate = 3;
     private List<GameObject> activeTiles = new List<GameObject>();
 
-    // Reference to PlayerController to get laneDistance
     private PlayerController playerController;
 
     void Start()

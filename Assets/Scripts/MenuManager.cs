@@ -39,9 +39,6 @@ public class MenuManager : MonoBehaviour
             case "Hard":
                 SceneManager.LoadScene("Hard");
                 break;
-            default:
-                Debug.LogError("Invalid difficulty selected: " + difficulty);
-                break;
         }
     }
 
